@@ -14,7 +14,7 @@ module Crowdtilt
       @api_key = params[:api_key]
       @api_secret = params[:api_secret]
       
-      @version = 'v1'
+      @version = ''
       
       if params[:mode] == 'production'
         @mode = 'production'
@@ -92,15 +92,7 @@ module Crowdtilt
     end
     
     def uri(string)   
-      if string =~ /^\/v/
         string
-      elsif string =~ /^v/
-        '/' + string
-      elsif string =~ /^\//
-        "/#{@version}" + string
-      else
-        "/#{@version}/" + string
-      end
     end
   
   end
